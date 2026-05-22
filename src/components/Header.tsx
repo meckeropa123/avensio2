@@ -16,18 +16,28 @@ export default function Header({ search, onSearch, onMenu, cartCount, onOpenLogi
 
   return (
     <header className="sticky top-0 z-30 border-b bg-white/90 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center gap-3 px-4 py-3">
-        <button className="rounded-lg border px-2 py-1 md:hidden" onClick={onMenu}>☰</button>
-        <Link to="/" className="text-lg font-bold text-brand">Avensio Market</Link>
+      <div className="mx-auto flex max-w-7xl items-center gap-2 px-4 py-3 sm:gap-3">
+        <button
+          className="rounded-lg border px-2 py-1 md:hidden"
+          onClick={onMenu}
+          aria-label="Открыть меню"
+        >
+          ☰
+        </button>
 
-        <div className="hidden flex-1 md:block">
-          <SearchBar value={search} onChange={onSearch} />
-        </div>
+        <Link
+          to="/"
+          className="min-w-0 truncate text-base font-bold text-brand sm:text-lg"
+          aria-label="Avensio Market"
+        >
+          <span className="sm:hidden">Avensio</span>
+          <span className="hidden sm:inline">Avensio Market</span>
+        </Link>
 
-        <div className="ml-auto hidden items-center gap-2 sm:flex">
+        <div className="ml-auto hidden items-center gap-2 md:flex">
           {isAuthenticated ? (
             <>
-              <span className="text-sm text-slate-600">{email}</span>
+              <span className="max-w-44 truncate text-sm text-slate-600">{email}</span>
               <button onClick={logout} className="rounded-lg border px-3 py-1.5 text-sm hover:bg-slate-50">Выйти</button>
             </>
           ) : (
@@ -38,12 +48,16 @@ export default function Header({ search, onSearch, onMenu, cartCount, onOpenLogi
           )}
         </div>
 
-        <Link to="/cart" className="rounded-lg bg-slate-900 px-3 py-1.5 text-sm text-white transition hover:bg-slate-700">
-          Корзина ({cartCount})
+        <Link
+          to="/cart"
+          className="shrink-0 rounded-lg bg-slate-900 px-2.5 py-1.5 text-sm text-white transition hover:bg-slate-700 sm:px-3"
+        >
+          <span className="sm:hidden">🛒 {cartCount}</span>
+          <span className="hidden sm:inline">Корзина ({cartCount})</span>
         </Link>
       </div>
 
-      <div className="px-4 pb-3 md:hidden">
+      <div className="mx-auto max-w-7xl px-4 pb-3">
         <SearchBar value={search} onChange={onSearch} />
       </div>
     </header>
