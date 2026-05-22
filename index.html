@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Avensio Market — маркетплейс</title>
+    <style>
+      :root {
+        --bg: #f8fafc;
+        --card: #ffffff;
+        --text: #0f172a;
+        --muted: #64748b;
+        --brand: #4f46e5;
+        --brand-2: #7c3aed;
+        --border: #e2e8f0;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+      }
+      .container { width: min(1120px, 100% - 2rem); margin: 0 auto; }
+      .header {
+        position: sticky; top: 0; z-index: 30;
+        background: rgba(255,255,255,.92);
+        backdrop-filter: blur(8px);
+        border-bottom: 1px solid var(--border);
+      }
+      .header-row { display: flex; align-items: center; gap: .75rem; padding: .75rem 0; }
+      .logo { font-weight: 800; color: var(--brand); text-decoration: none; }
+      .search { flex: 1; }
+      .search input {
+        width: 100%; border: 1px solid var(--border); border-radius: 12px; padding: .65rem .85rem;
+      }
+      .btn { border-radius: 10px; border: 1px solid var(--border); background: #fff; padding: .5rem .8rem; text-decoration: none; color: var(--text); font-size: .92rem; }
+      .btn-dark { background: #0f172a; color: #fff; border-color: #0f172a; }
+      main { padding: 1.5rem 0 2rem; }
+      .hero {
+        background: linear-gradient(120deg, var(--brand), var(--brand-2)); color: #fff;
+        border-radius: 24px; padding: 2rem;
+      }
+      .hero h1 { margin: 0 0 .5rem; font-size: clamp(1.65rem, 3vw, 2.4rem); }
+      .hero p { margin: 0; color: #e0e7ff; max-width: 680px; }
+      .hero .cta { margin-top: 1rem; display: inline-block; background: #fff; color: var(--brand); font-weight: 600; }
+      .section { margin-top: 1.5rem; }
+      .section h2 { margin: 0 0 .75rem; font-size: 1.25rem; }
+      .chips { display: flex; flex-wrap: wrap; gap: .55rem; }
+      .chip { background: #fff; border: 1px solid var(--border); border-radius: 999px; padding: .45rem .9rem; font-size: .9rem; }
+      .grid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 1rem; }
+      .card { background: var(--card); border-radius: 18px; padding: .8rem; box-shadow: 0 10px 30px rgba(15, 23, 42, .08); }
+      .photo { height: 170px; border-radius: 12px; background: linear-gradient(135deg, #dbeafe, #e9d5ff); }
+      .meta { margin-top: .6rem; color: var(--muted); font-size: .8rem; }
+      .name { margin-top: .25rem; font-weight: 600; }
+      .price { margin-top: .35rem; font-weight: 700; }
+      .add { margin-top: .65rem; width: 100%; border: 0; border-radius: 10px; padding: .55rem; background: var(--brand); color: #fff; cursor: pointer; }
+      .benefits { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .75rem; }
+      .benefits div { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: .9rem; }
+      footer { border-top: 1px solid var(--border); background: #fff; margin-top: 2rem; }
+      footer .container { padding: 1rem 0; color: var(--muted); font-size: .9rem; }
+      @media (max-width: 1024px) { .grid { grid-template-columns: repeat(3, minmax(0,1fr)); } }
+      @media (max-width: 780px) {
+        .header-row { flex-wrap: wrap; }
+        .search { order: 3; width: 100%; flex: 0 0 100%; }
+        .grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+        .benefits { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 480px) {
+        .container { width: min(1120px, 100% - 1rem); }
+        .hero { padding: 1.2rem; border-radius: 18px; }
+        .grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container header-row">
+        <a class="logo" href="#">Avensio Market</a>
+        <div class="search"><input type="text" placeholder="Поиск товаров..." /></div>
+        <a class="btn" href="#">Войти</a>
+        <a class="btn" href="#">Регистрация</a>
+        <a class="btn btn-dark" href="#">Корзина (0)</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <h1>Современный маркетплейс для покупок каждый день</h1>
+        <p>Электроника, одежда, товары для дома, спорта, красоты и детей — всё в одном месте с удобной навигацией и быстрым поиском.</p>
+        <a class="btn cta" href="#">Перейти в каталог</a>
+      </section>
+
+      <section class="section">
+        <h2>Категории</h2>
+        <div class="chips">
+          <span class="chip">Электроника</span><span class="chip">Одежда</span><span class="chip">Дом</span>
+          <span class="chip">Спорт</span><span class="chip">Красота</span><span class="chip">Детские товары</span>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2>Пробные товары</h2>
+        <div class="grid">
+          <article class="card"><div class="photo"></div><div class="meta">Электроника</div><div class="name">Смартфон Nova X</div><div class="price">59 990 ₽</div><button class="add">Добавить в корзину</button></article>
+          <article class="card"><div class="photo"></div><div class="meta">Одежда</div><div class="name">Худи Urban Soft</div><div class="price">4 990 ₽</div><button class="add">Добавить в корзину</button></article>
+          <article class="card"><div class="photo"></div><div class="meta">Спорт</div><div class="name">Кроссовки Sprint Pro</div><div class="price">8 990 ₽</div><button class="add">Добавить в корзину</button></article>
+          <article class="card"><div class="photo"></div><div class="meta">Красота</div><div class="name">Крем PureSkin</div><div class="price">1 990 ₽</div><button class="add">Добавить в корзину</button></article>
+        </div>
+      </section>
+
+      <section class="section benefits">
+        <div>🚚 Быстрая доставка по всей стране</div>
+        <div>🔒 Безопасная оплата и защита данных</div>
+        <div>💬 Поддержка 24/7 для всех клиентов</div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container">© 2026 Avensio Market • Главная страница (вёрстка index.html)</div>
+    </footer>
+
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
