@@ -10,7 +10,6 @@ export default function MobileMenu({ open, onClose }: { open: boolean; onClose: 
           <Link to="/" onClick={onClose} className="block">Главная</Link>
           <Link to="/catalog" onClick={onClose} className="block">Каталог</Link>
           <Link to="/cart" onClick={onClose} className="block">Корзина</Link>
-          <Link to="/auth" onClick={onClose} className="block">Профиль</Link>
         </nav>
       </div>
     </div>
