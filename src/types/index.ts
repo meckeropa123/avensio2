@@ -10,6 +10,8 @@ export interface Product {
   isPopular?: boolean;
   description: string;
   image: string;
+  images?: string[];
+  reviews?: string[];
 }
 
 export interface CartItemType {
