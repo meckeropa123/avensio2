@@ -15,7 +15,7 @@ export default function ProductCard({ product }: { product: Product }) {
         <p className="text-sm text-amber-500">★ {product.rating}</p>
         <p className="font-semibold">{product.price.toLocaleString('ru-RU')} ₽</p>
       </div>
-      <button onClick={() => addToCart(product)} className="mt-3 w-full rounded-xl bg-brand px-3 py-2 text-white transition hover:bg-indigo-600">Добавить в корзину</button>
+      <button onClick={(e) => { e.stopPropagation(); addToCart(product); }} className="mt-3 w-full rounded-xl bg-brand px-3 py-2 text-white transition hover:bg-indigo-600">Добавить в корзину</button>
     </article>
   );
 }
